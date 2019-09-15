@@ -6,11 +6,15 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "express": "^4.17.1"
+  },
+  "description": "haven't thought of a name yet, but it will be an fitness journal forum - Users will log in - User can add a post of their workouts   - workouts - group class, weights, or cardio   - time   - intensity   - feel good?   - new goal   - image - maybe I will add a nutrition journal",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/final_project"
+  },
+  "author": "",
+  "license": "ISC"
 }

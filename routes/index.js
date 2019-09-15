@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('GA FINAL PROJECT');
-});
+router.get('/', (req, res) => {
+  res.send("GA PROJECT")
+})
 
 module.exports = router;
