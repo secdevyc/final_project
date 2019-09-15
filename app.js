@@ -17,3 +17,5 @@ app.use('/users', usersRouter);
 app.listen(port, () => {
   console.log("I'm totes listenin' on port: " + port);
 });
+
+module.exports = app;
