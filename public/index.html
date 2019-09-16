@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" ng-app="Fitbook">
   <head>
     <meta charset="utf-8">
     <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="javascripts/app.js" charset="utf-8"></script>
   </head>
-  <body>
-    <h1>YAY, FINAL PROJECT IS UP!</h1>
+  <body ng-controller = "MainController as ctrl">
+    <h1>{{ctrl.hello}}</h1>
   </body>
 </html>
