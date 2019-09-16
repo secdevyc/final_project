@@ -7,6 +7,27 @@
     <script src="javascripts/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller = "MainController as ctrl">
-    <h1>{{ctrl.hello}}</h1>
+    <h1>Fitbook</h1>
+    <div class="container" ng-repeat="post in ctrl.posts">
+      <h2>Posts</h2>
+      <div class="">
+        <img ng-src="{{post.image}}" />
+        <dd>posted by:{{ post.name }}</dd>
+        <dd>{{ post.name }}'s {{ post.workout }} workout at Intensity level {{ post.intensity }}</dd>
+        <dd>felt good? {{ post.feel_good }}</dd>
+        <dd>new_goal:{{ post.new_goal }}</dd>
+      </div>
+    </div>
+    <div>
+      <form ng-submit="ctrl.createPost()">
+        <input type="text" placeholder="name" ng-model="ctrl.name"/>
+        <input type="text" placeholder="workout" ng-model="ctrl.workout" />
+        <input type="number" placeholder="intensity 1-5" ng-model="ctrl.intensity" />
+        <input type="text" placeholder="new goal" ng-model="ctrl.new_goal" />
+        <input type="text" placeholder="image or gif" ng-model="ctrl.image" />
+        Feel good? <input type="checkbox" ng-model="ctrl.feel_good" />
+        <input type="submit" value="add post" />
+      </form>
+    </div>
   </body>
 </html>
