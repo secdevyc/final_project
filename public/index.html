@@ -16,6 +16,55 @@
         <dd>{{ post.name }}'s {{ post.workout }} workout at Intensity level {{ post.intensity }}</dd>
         <dd>felt good? {{ post.feel_good }}</dd>
         <dd>new_goal:{{ post.new_goal }}</dd>
+        <button ng-click="ctrl.deletePost(post)">delete</button>
+        <button ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm">edit</button>
+      </div>
+      <div>
+        <form ng-if="ctrl.indexOfEditForm" ng-submit="ctrl.editPost(post)">
+          <label for="name">Name:</label>
+          <input type="text"
+                 id="name"
+                 ng-value="post.name"
+                 ng-model="ctrl.updatedName"
+                 />
+          <label for="image">Image:</label>
+          <input type="text"
+                  id="name"
+                  ng-value="post.image"
+                  ng-model="ctrl.updatedImage"
+                  />
+          <label for="workout">Workout:</label>
+          <input type="text"
+                  id="workout"
+                  ng-value="post.workout"
+                  ng-model="ctrl.updatedWorkout"
+                  />
+          <label for="intensity">Intensity:</label>
+          <input type="number"
+                 id="intensity"
+                 ng-value="post.intensity"
+                 ng-model="ctrl.updatedIntensity"
+                 />
+          <label for="name">Name:</label>
+          <input type="text"
+                id="name"
+                ng-value="post.name"
+                ng-model="ctrl.updatedName"
+                />
+          <label for="new_goal">New Goal:</label>
+          <input type="text"
+                 id="new_goal"
+                 ng-value="post.new_goal"
+                 ng-model="ctrl.updatedNewGoal"
+                 />
+          <label for="feel_good">Feel Good?</label>
+          <input type="checkbox"
+                 id="feel_good"
+                 ng-value="post.feel_good"
+                 ng-model="ctrl.updatedFeelGood"
+                 />
+          <input type="submit" value="update post" />
+        </form>
       </div>
     </div>
     <div>

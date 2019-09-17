@@ -10,6 +10,19 @@ router.get ('/', (req, res) => {
     res.json(foundPosts)
   })
 })
+//////// DELETE ROUTE ////////////
+router.delete('/:id', (req, res) => {
+  Posts.findByIdAndRemove(req.params.id, (error, deletedPost) => {
+    res.json(deletedPost)
+  })
+})
+
+/////////// UPDATE ROUTE ////////////
+router.put('/:id', (req, res) => {
+  Posts.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedPost) => {
+    res.json(updatedPost)
+  })
+})
 
 ////////// CREATE ROUTE ////////////
 router.post('/', (req, res) => {
