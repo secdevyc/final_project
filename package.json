@@ -1,10 +1,6 @@
 {
   "name": "fitbook",
-  "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "npm start"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.7.1",
