@@ -1,8 +1,8 @@
 const app = angular.module("Fitbook", []);
 
-app.controller("AuthController", [$http, function($http){
-  
-}])
+// app.controller("AuthController", [$http, function($http){
+//
+// }])
 
 app.controller("MainController", ["$http", function($http){
   const controller = this;

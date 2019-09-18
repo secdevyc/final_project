@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const AWS = require('aws-sdk');
 const seedFitbook = require('../models/seedFitbook.js');
-const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
-const CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
-const request = require('request');
-const jwkToPem = require('jwk-to-pem');
-const jwt = require('jsonwebtoken');
-global.fetch = require('node-fetch');
 
 const Posts = require('../models/posts.js')
 

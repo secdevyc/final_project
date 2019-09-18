@@ -1,16 +1,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose')
-const AmazonCognitoIdentity = require('amazon-cognito-identity-js');
-const CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool;
-const AWS = require('aws-sdk');
-const request = require('request');
-const jwkToPem = require('jwk-to-pem');
-const jwt = require('jsonwebtoken');
-global.fetch = require('node-fetch');
-
 const postsController = require('./controllers/posts.js');
-
 const app = express();
 
 
@@ -31,12 +22,6 @@ app.use(express.static('public'));
 
 app.use('/posts', postsController);
 
-const poolData = {
-UserPoolId : "WpZcEmeUC",
-ClientId: "5g5oahal14ekphr0mrc2274lks"
-};
-
-const pool_region = 'us-east-1';
 
 // function RegisterUser(){
 //     var attributeList = [];

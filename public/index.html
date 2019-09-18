@@ -9,99 +9,113 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="javascripts/app.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:700|PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body ng-controller = "MainController as ctrl">
     <div class="header">
-      <h1>Fitbook</h1>
-      <h2>Register</h2>
-      <h2>SignIn</h2>
+      <h1>fitbook</h1>
+      <div>
+        <h4>SignIn</h4>
+        <h4>Register</h4>
+      </div>
     </div>
-    <div>
-      <form ng-submit="">
-        email: <input type="text" ng-model="auth.email" />
-        password: <input type="text" ng-model="auth.password" />
-        <input type="submit" />
-      </form>
-      <form ng-submit="">
-        code: <input type="text" ng-mode="auth.code" />
-        <input type="submit" />
-      </form>
-    </div>
-    <div class="container">
-      <div class="new-post">
-        <form ng-submit="ctrl.createPost()">
-          <input type="text" placeholder="name" ng-model="ctrl.name"/>
-          <input type="text" placeholder="title" ng-mode="ctrl.title" />
-          <input type="text" placeholder="workout" ng-model="ctrl.workout" />
-          <input type="number" placeholder="intensity 1-5" ng-model="ctrl.intensity" />
-          <input type="text" placeholder="new goal" ng-model="ctrl.new_goal" />
-          <input type="text" placeholder="image or gif" ng-model="ctrl.image" />
-          Feel good? <input type="checkbox" ng-model="ctrl.feel_good" />
-          <input type="submit" value="add post" />
+    <main class="container">
+      <div>
+        <form ng-if="" ng-submit="">
+          email: <input type="text" ng-model="auth.email" />
+          password: <input type="text" ng-model="auth.password" />
+          <input type="submit" />
+        </form>
+        <form ng-if="" ng-submit="">
+          code: <input type="text" ng-mode="auth.code" />
+          <input type="submit" />
         </form>
       </div>
-      <div class="card" ng-repeat="post in ctrl.posts">
-        <div>{{ post.title }}</div>
-          <div class="image">
-            <img ng-src="{{post.image}}" />
-          </div>
-          <div class="info">
-            <dd>posted by:{{ post.name }}</dd>
-            <dd>Posting after a {{ post.workout }} workout at Intensity level {{ post.intensity }}</dd>
-            <dd>felt good? {{ post.feel_good }}</dd>
-            <dd>new_goal:{{ post.new_goal }}</dd>
-            <button ng-click="ctrl.deletePost(post)">delete</button>
-            <button ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm">edit</button>
-          </div>
-          <div>
-            <form ng-if="ctrl.indexOfEditForm" ng-submit="ctrl.editPost(post)">
-              <label for="name">Name:</label>
-              <input type="text"
-                     id="name"
-                     ng-value="post.name"
-                     ng-model="ctrl.updatedName"
-                     />
-              <label for="title">Title:</label>
-              <input type="text"
-                     id="title"
-                     ng-value="post.title"
-                     ng-model="ctrl.updatedTitle"
-                     />
-              <label for="image">Image:</label>
-              <input type="text"
-                      id="name"
-                      ng-value="post.image"
-                      ng-model="ctrl.updatedImage"
-                      />
-              <label for="workout">Workout:</label>
-              <input type="text"
-                      id="workout"
-                      ng-value="post.workout"
-                      ng-model="ctrl.updatedWorkout"
-                      />
-              <label for="intensity">Intensity:</label>
-              <input type="number"
-                     id="intensity"
-                     ng-value="post.intensity"
-                     ng-model="ctrl.updatedIntensity"
-                     />
-              <label for="new_goal">New Goal:</label>
-              <input type="text"
-                     id="new_goal"
-                     ng-value="post.new_goal"
-                     ng-model="ctrl.updatedNewGoal"
-                     />
-              <label for="feel_good">Feel Good?</label>
-              <input type="checkbox"
-                     id="feel_good"
-                     ng-value="post.feel_good"
-                     ng-model="ctrl.updatedFeelGood"
-                     />
-              <input type="submit" value="update post" />
-            </form>
-          </div>
+      <div>
+        <div class="card new-post">
+          <form ng-submit="ctrl.createPost()">
+            <input type="text" placeholder="name" ng-model="ctrl.name"/>
+            <input type="text" placeholder="title" ng-mode="ctrl.title" />
+            <input type="text" placeholder="workout" ng-model="ctrl.workout" />
+            <input type="number" placeholder="intensity 1-5" ng-model="ctrl.intensity" />
+            <input type="text" placeholder="new goal" ng-model="ctrl.new_goal" />
+            <input type="text" placeholder="image or gif" ng-model="ctrl.image" />
+            <label>
+              <input type="checkbox" ng-model="ctrl.feel_good"/>
+              <span>Feel Good?</span>
+            </label><br />
+            <input type="submit" value="add post" />
+          </form>
         </div>
-    </div>
+        <div class="card" ng-repeat="post in ctrl.posts">
+          <div class="title">{{ post.title }}</div>
+            <div class="image">
+              <img ng-src="{{post.image}}" />
+            </div>
+            <div class="info">
+              <dd>posted by: {{ post.name }}</dd>
+              <dd>Posting after a {{ post.workout }} workout at Intensity level {{ post.intensity }}</dd>
+              <dd>felt good?
+                <p ng-if="post.feel_good == true">HELL YEAH!!!</p>
+                <p ng-if="post.feel_good == null">HELL NO</p>
+              </dd>
+              <dd>new_goal:{{ post.new_goal }}</dd>
+              <div class="buttons">
+                <button class="button" ng-click="ctrl.deletePost(post)">delete</button>
+                <button class="button" ng-click="ctrl.indexOfEditForm = $index" ng-dblclick="ctrl.indexOfEditForm = null">edit</button>
+              </div>
+              </div>
+            <div class="edit-form">
+              <form ng-if="ctrl.indexOfEditForm === $index" ng-submit="ctrl.editPost(post)">
+                <label for="name">Name:</label>
+                <input type="text"
+                       id="name"
+                       ng-value="post.name"
+                       ng-model="ctrl.updatedName"
+                       />
+                <label for="title">Title:</label>
+                <input type="text"
+                       id="title"
+                       ng-value="post.title"
+                       ng-model="ctrl.updatedTitle"
+                       />
+                <label for="image">Image:</label>
+                <input type="text"
+                        id="name"
+                        ng-value="post.image"
+                        ng-model="ctrl.updatedImage"
+                        />
+                <label for="workout">Workout:</label>
+                <input type="text"
+                        id="workout"
+                        ng-value="post.workout"
+                        ng-model="ctrl.updatedWorkout"
+                        />
+                <label for="intensity">Intensity:</label>
+                <input type="number"
+                       id="intensity"
+                       ng-value="post.intensity"
+                       ng-model="ctrl.updatedIntensity"
+                       />
+                <label for="new_goal">New Goal:</label>
+                <input type="text"
+                       id="new_goal"
+                       ng-value="post.new_goal"
+                       ng-model="ctrl.updatedNewGoal"
+                       />
+                <label for="feel_good">
+                <input type="checkbox"
+                        id="feel_good"
+                        ng-checked="post.feel_good"
+                        ng-model="ctrl.updatedFeelGood"/>
+                 <span>Feel Good?</span>
+                </label>
+                <input type="submit" value="update post" />
+              </form>
+            </div>
+          </div>
+      </div>
+    </main>
   </body>
 </html>
