@@ -1,8 +1,14 @@
 const app = angular.module("Fitbook", []);
 
+app.controller("AuthController", [$http, function($http){
+  
+}])
+
 app.controller("MainController", ["$http", function($http){
   const controller = this;
   this.indexOfEditForm = false;
+  this.currentPost = null;
+  this.currentPostShow = false;
 
 
   this.getPosts = () => {
@@ -22,6 +28,7 @@ app.controller("MainController", ["$http", function($http){
       url: "/posts",
       data: {
                 name: this.name,
+                title: this.title,
                 image: this.image,
                 workout: this.workout,
                 intensity: this.intensity,
@@ -31,6 +38,7 @@ app.controller("MainController", ["$http", function($http){
     }).then(function(response) {
       console.log(response);
                 this.name = null;
+                this.title = null;
                 this.image = null;
                 this.workout = null;
                 this.intensity = null;
@@ -58,6 +66,7 @@ app.controller("MainController", ["$http", function($http){
       url: "/posts/" + post._id,
       data: {
         name: this.updatedName,
+        title: this.updatedTitle,
         image: this.updatedImage,
         workout: this.updatedWorkout,
         intensity: this.updatedIntensity,
