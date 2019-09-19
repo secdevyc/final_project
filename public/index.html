@@ -17,12 +17,12 @@
     <div class="header">
       <h1>fitbook</h1>
       <div>
-        <h4 ng-click="ctrl.showSignIn = !ctrl.showSignIn">SignIn</h4>
-        <h4 ng-click="ctrl.showRegister = !ctrl.showRegister">Register</h4>
+        <h4><a href="/signin.html"></a>SignIn</h4>
+        <h4><a href="/register.html"></a>Register</h4>
       </div>
     </div>
 
-      <section ng-if="ctrl.showRegister" class="container registerForm">
+      <!-- <section ng-if="ctrl.showRegister" class="container registerForm">
         <header class="header">
           <h1>register</h1>
         </header>
@@ -33,9 +33,9 @@
 
             <input type="submit" value="Register">
           </form>
-      </section>
+      </section> -->
 
-    <section ng-if="ctrl.showSignIn" class="container signinForm">
+    <!-- <section ng-if="ctrl.showSignIn" class="container signinForm">
       <header class="header">
         <h1>sign in</h1>
       </header>
@@ -45,7 +45,7 @@
 
           <input type="submit" value="Sign in" ng-click="ctrl.showIndex = !ctrl.showIndex">
         </form>
-    </section>
+    </section> -->
 
     <main class="container">
       <div>
