@@ -1,15 +1,19 @@
 const app = angular.module("Fitbook", []);
-
+const Fitbook = window.WildRydes || {};
 // app.controller("AuthController", [$http, function($http){
 //
 // }])
 
-app.controller("MainController", ["$http", function($http){
+app.controller("MainController", ["$scope", "$http", function($scope, $http){
+
   const controller = this;
   this.indexOfEditForm = false;
   this.currentPost = null;
   this.currentPostShow = false;
-
+  this.showIndex = false;
+  this.showRegister = false;
+  this.showVerify = false;
+  this.showSignIn = false;
 
   this.getPosts = () => {
     $http({

@@ -17,6 +17,10 @@ router.get ('/', (req, res) => {
     res.json(foundPosts)
   })
 })
+
+router.get ('/signin', (req, res) => {
+  res.redirect('./signin.html')
+})
 //////// DELETE ROUTE ////////////
 router.delete('/:id', (req, res) => {
   Posts.findByIdAndRemove(req.params.id, (error, deletedPost) => {

@@ -13,13 +13,40 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body ng-controller = "MainController as ctrl">
+
     <div class="header">
       <h1>fitbook</h1>
       <div>
-        <h4>SignIn</h4>
-        <h4>Register</h4>
+        <h4 ng-click="ctrl.showSignIn = !ctrl.showSignIn">SignIn</h4>
+        <h4 ng-click="ctrl.showRegister = !ctrl.showRegister">Register</h4>
       </div>
     </div>
+
+      <section ng-if="ctrl.showRegister" class="container registerForm">
+        <header class="header">
+          <h1>register</h1>
+        </header>
+          <form ng-submit="ctrl.handleRegister()" id="registrationForm">
+            <input type="email" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+            <input type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+            <input type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
+
+            <input type="submit" value="Register">
+          </form>
+      </section>
+
+    <section ng-if="ctrl.showSignIn" class="container signinForm">
+      <header class="header">
+        <h1>sign in</h1>
+      </header>
+        <form id="signinForm">
+          <input type="email" id="emailInputSignin" placeholder="Email" required>
+          <input type="password" id="passwordInputSignin" placeholder="Password" pattern=".*" required>
+
+          <input type="submit" value="Sign in" ng-click="ctrl.showIndex = !ctrl.showIndex">
+        </form>
+    </section>
+
     <main class="container">
       <div>
         <form ng-if="" ng-submit="">
@@ -49,18 +76,18 @@
           </form>
         </div>
         <div class="card" ng-repeat="post in ctrl.posts">
-          <div class="title">{{ post.title }}</div>
+          <div class="right-align"><span><h5>{{ post.name }}</h5></span>is feeling..</div>
+          <div class="title"><h1>{{ post.title }}</h1></div>
             <div class="image">
               <img ng-src="{{post.image}}" />
             </div>
             <div class="info">
-              <dd>posted by: {{ post.name }}</dd>
-              <dd>Posting after a {{ post.workout }} workout at Intensity level {{ post.intensity }}</dd>
+              <dd>after a <span>{{ post.workout }}</span> workout at Intensity level <span>{{ post.intensity }}</span></dd>
               <dd>felt good?
-                <p ng-if="post.feel_good == true">HELL YEAH!!!</p>
-                <p ng-if="post.feel_good == null">HELL NO</p>
+                <p ng-if="post.feel_good == true"><span>HELL YEAH!!!</span></p>
+                <p ng-if="post.feel_good == null"><span>HELL NO</span></p>
               </dd>
-              <dd>new_goal:{{ post.new_goal }}</dd>
+              <dd>new goal: <span>{{ post.new_goal }}</span></dd>
               <div class="buttons">
                 <button class="button" ng-click="ctrl.deletePost(post)">delete</button>
                 <button class="button" ng-click="ctrl.indexOfEditForm = $index" ng-dblclick="ctrl.indexOfEditForm = null">edit</button>
@@ -117,5 +144,11 @@
           </div>
       </div>
     </main>
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
   </body>
 </html>

@@ -26,6 +26,7 @@ a {
 }
 
 h1 {
+  font-size: 40px;
   margin: 0;
 }
 
@@ -53,10 +54,18 @@ margin: 3em auto;
 .title {
   font-size: 20px;
   padding: 5px;
+  margin: 1em auto;
 }
 
 dd {
   padding: 10px;
+}
+
+span {
+  margin: 5px;
+  background-color: azure;
+  color: #3b5999;
+  text-align: center;
 }
 
 button {
@@ -65,7 +74,7 @@ button {
 }
 
 .image {
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
 }
 
