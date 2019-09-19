@@ -121,7 +121,7 @@ var Fitbook = window.WildRydes || {};
         signin(email, password,
             function signinSuccess() {
                 console.log('Successfully Logged In');
-                window.location.href = '/';
+                window.location.href = '/signin.html';
             },
             function signinError(err) {
                 alert(err);
