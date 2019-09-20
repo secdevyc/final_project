@@ -94,3 +94,28 @@ p {
   padding: 2em;
   font-size: 10px;
 }
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+.thumbs {
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+.thumbs img {
+  width: 20px;
+  margin: 5px;
+}
+
+.comment {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+
+.comment img {
+  width: 20px;
+}

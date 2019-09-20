@@ -33,7 +33,7 @@ Basic Outline for Readme
 * [Project Status](#project-status)
 * [Unsolved Issues](#unsolved-issues)
 * [Notes and Reminders](#notes-and-reminders)
-* [References](#references)
+
 
 ## Introduction
 Fitbook is a facebook mockup app where gym junkies can come and post their workouts and encourage each other to reach their goals.
@@ -69,9 +69,6 @@ https://use-fitbook.herokuapp.com
 * User should be able to edit or delete their own post
 * User should be able to like and comment other people's posts
 
-Use the following formatting to insert pictures
-![Example create_user](./public/images/readme/create_user.png)
-
 ## Project Status
 In-progress
 
@@ -82,6 +79,3 @@ Trying to get the AWS Cognito service to work with the Angularjs app. The app co
 Implement post owner permissions (edit and delete) once Cognito problem is solved
 Add likes and dislikes
 Add comments
-
-## References
-List any sites used as reference here
