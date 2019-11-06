@@ -7,7 +7,7 @@
 },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.5"
   },
   "description": "haven't thought of a name yet, but it will be an fitness journal forum - Users will log in - User can add a post of their workouts   - workouts - group class, weights, or cardio   - time   - intensity   - feel good?   - new goal   - image - maybe I will add a nutrition journal",
   "main": "app.js",
